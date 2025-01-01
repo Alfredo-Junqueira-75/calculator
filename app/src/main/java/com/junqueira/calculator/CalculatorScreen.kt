@@ -78,7 +78,7 @@ fun ButtonRow(buttons: List<String>) {
                     when (button) {
                         "AC" -> {
                             calculator.expression = ""
-                            calculator.result = 0
+                            calculator.result = 0.0
                         }
                         "C" -> calculator.expression = clear(calculator.expression)
                         "=" -> calculator.result = processStringOperation(calculator.expression)
@@ -119,7 +119,7 @@ fun CalculatorExpression(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
         )   {
-            Text(text = calculator.result.toString(),
+            Text(text = if(calculator.result % 1 != 0.0) calculator.result.toString() else calculator.result.toInt().toString(),
                 fontSize = 30.sp,
                 style = MaterialTheme.typography.displayMedium,
                 modifier = Modifier

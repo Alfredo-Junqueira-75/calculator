@@ -23,7 +23,7 @@ fun writeOperation(expression: String, button: String): String {
     return aux
 }
 
-fun processStringOperation(string: String): Int {
+fun processStringOperation(string: String): Double {
 
     return (try {
         val formattedExpression = string.replace("x", "*")
@@ -32,5 +32,5 @@ fun processStringOperation(string: String): Int {
     } catch (e: Exception) {
         println("Erro ao avaliar a expressão: ${e.message}")
         0.0
-    }).toInt()
+    })
 }
